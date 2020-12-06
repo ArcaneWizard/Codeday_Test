@@ -23,6 +23,12 @@ public class playerController : MonoBehaviour {
     private float[] Timers = {1, 1, 1, 1};
     Vector3[] diffDirs = new Vector3[4];
 
+    public GameObject enderpearl;
+    public Transform orbPosition;
+    public float orbCooldown;
+    private float orbTimer;
+    public float orbForce;
+
     void Awake()
     {
         rig = transform.GetComponent<Rigidbody>();
@@ -40,11 +46,27 @@ public class playerController : MonoBehaviour {
         }
 
         //Jump reload
-        if (jumpTimer > 0) {
+        if (jumpTimer > 0) 
             jumpTimer -= Time.deltaTime;
-        }
         else 
             canJump = true;
+
+        //Orb reload
+        if (orbTimer > 0)
+            orbTimer -= Time.deltaTime;
+
+        //Right-click to throw W-Orb
+        if (Input.GetMouseButtonDown(1) && orbTimer <= 0) {
+            throwOrb();
+            orbTimer = orbCooldown;
+        }
+    }       
+
+    //throw W-Orb
+    private void throwOrb() {
+        GameObject wOrb = Instantiate(enderpearl, orbPosition.position, Quaternion.identity);
+        wOrb.transform.GetComponent<Rigidbody>().AddForce(camera.transform.forward * orbForce);
+        wOrb.transform.GetComponent<teleport>().player = transform;
     }
 
     //Looking at the mouse
