@@ -37,7 +37,7 @@ Transform:
   - {fileID: 4667339787930234124}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.009000001, y: 360, z: -5.872}
+  m_LocalEulerAnglesHint: {x: 0, y: 360, z: -31.945002}
 --- !u!114 &3646112341211721346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2286,6 +2286,7 @@ MonoBehaviour:
   health: 20
   shiny: {fileID: 2100000, guid: 3a47f35d49f12ce41b683663ba5e2847, type: 2}
   cracked: {fileID: 2100000, guid: e78487a7be35045408e0a57592850729, type: 2}
+  crystalHealth: {fileID: 0}
 --- !u!215 &-8128530972022480763
 ReflectionProbe:
   m_ObjectHideFlags: 0
