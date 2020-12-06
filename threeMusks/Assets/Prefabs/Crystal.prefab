@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3646112341211721356}
   - component: {fileID: 3646112341211721357}
   - component: {fileID: 3646112341211721358}
+  - component: {fileID: 4638965299797538432}
+  - component: {fileID: -8128530972022480763}
   m_Layer: 0
   m_Name: Crystal
   m_TagString: Untagged
@@ -2269,6 +2271,54 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &4638965299797538432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646112341211721359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f0d30e6ed90284e848d814e4104756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  shiny: {fileID: 2100000, guid: 3a47f35d49f12ce41b683663ba5e2847, type: 2}
+  cracked: {fileID: 2100000, guid: e78487a7be35045408e0a57592850729, type: 2}
+--- !u!215 &-8128530972022480763
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646112341211721359}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 10, y: 10, z: 10}
+  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
 --- !u!1001 &3646112341101617735
 PrefabInstance:
   m_ObjectHideFlags: 0
