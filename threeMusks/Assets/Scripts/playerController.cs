@@ -9,6 +9,7 @@ public class playerController : MonoBehaviour {
     public float accelerationTime = 0.3f;
     public Camera camera;
     public GameObject body;
+    private List<Transform> bottomOfPlayer =  new List<Transform>();
 
     public float sensitivity = 150f;
     private float xRotation = 0;
@@ -32,6 +33,9 @@ public class playerController : MonoBehaviour {
     void Awake()
     {
         rig = transform.GetComponent<Rigidbody>();
+        
+        foreach (Transform child in body.transform) 
+            bottomOfPlayer.Add(child);
     }
 
     void Update()
@@ -56,10 +60,19 @@ public class playerController : MonoBehaviour {
             orbTimer -= Time.deltaTime;
 
         //Right-click to throw W-Orb
-        if (Input.GetMouseButtonDown(1) && orbTimer <= 0) {
+        if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.E)) && orbTimer <= 0) {
             throwOrb();
             orbTimer = orbCooldown;
         }
+
+        RaycastHit hit;
+        
+        bool a = Physics.Raycast(bottomOfPlayer[0].position, Vector3.down, out hit, 0.32f) ? true : false;
+        bool b = Physics.Raycast(bottomOfPlayer[1].position, Vector3.down, out hit, 0.32f) ? true : false;
+        bool c = Physics.Raycast(bottomOfPlayer[2].position, Vector3.down, out hit, 0.32f) ? true : false;
+        bool d = Physics.Raycast(bottomOfPlayer[3].position, Vector3.down, out hit, 0.32f) ? true : false;
+
+        onGround = (a || b || c || d);
     }       
 
     //throw W-Orb
@@ -130,23 +143,5 @@ public class playerController : MonoBehaviour {
     private void Jump() {
         jumpTimer = jumpReload;
         rig.AddForce(jumpForce);
-    }
-
-    void OnCollisionEnter(Collision col) {
-        if (col.gameObject.tag == "Ground") {
-            onGround = true;
-        }
-    }
-
-    void OnCollisionStay(Collision col) {
-        if (col.gameObject.tag == "Ground") {
-            onGround = true;
-        }
-    }
-
-    void OnCollisionExit(Collision col) {
-        if (col.gameObject.tag == "Ground") {
-            onGround = false;
-        }
     }
 }
