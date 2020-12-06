@@ -12,7 +12,7 @@ public class bridge_settings : MonoBehaviour
     {
         //space all the bridge's plank edge pivots equally apart
         for (int n = 0; n < transform.childCount; n++) {
-            transform.GetChild(n).transform.position = new Vector3(-15f + planckSpacing * n, 10.57f, 7.85f);
+            transform.GetChild(n).transform.position = new Vector3(-15f + planckSpacing * n, 40, 15.85f);
         }
 
         //add planks to a list
